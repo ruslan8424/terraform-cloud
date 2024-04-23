@@ -25,3 +25,16 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"] # Canonical
 }
+
+
+
+data "terraform_remote_state" "rds" {
+  backend = "remote"
+
+  config = {
+    organization = "ruslan8425"
+    workspaces = {
+      name = "rds"
+    }
+  }
+}
